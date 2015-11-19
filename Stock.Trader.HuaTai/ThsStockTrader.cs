@@ -301,30 +301,6 @@ namespace Stock.Trader.HuaTai
 
         protected override TraderResult internalSellStock(string code, float price, int num)
         {
-            ClickSellTreeViewItem();
-
-            const int BUY_TXT_CODE = 0x0408;
-            const int BUY_TXT_PRICE = 0x0409;
-            const int BUY_TXT_NUM = 0x040A;
-            const int BUY_BTN_OK = 0x3EE;
-
-            // 设定代码,价格,数量
-            IntPtr hPanel = GetDetailPanel();
-            IntPtr hCtrl = Win32API.GetDlgItem(hPanel, BUY_TXT_CODE);
-            Win32API.SendMessage(hCtrl, Win32Code.WM_SETTEXT, 0, StockUtil.GetShortCode(code));
-            hCtrl = Win32API.GetDlgItem(hPanel, BUY_TXT_PRICE);
-            Win32API.SendMessage(hCtrl, Win32Code.WM_SETTEXT, 0, price.ToString());
-            hCtrl = Win32API.GetDlgItem(hPanel, BUY_TXT_NUM);
-            Win32API.SendMessage(hCtrl, Win32Code.WM_SETTEXT, 0, num.ToString());
-
-            // 点击卖出按钮
-            hCtrl = Win32API.GetDlgItem(hPanel, BUY_BTN_OK);
-            Win32API.PostMessage(hCtrl, Win32Code.WM_LBUTTONDOWN, 0, 0);
-            Win32API.PostMessage(hCtrl, Win32Code.WM_LBUTTONUP, 0, 0);
-
-
-            ClickQueryDrcjTreeViewItem();
-
             TraderResult result = new TraderResult();
             result.Code = TraderResultEnum.SUCCESS;
             return result;
@@ -332,29 +308,6 @@ namespace Stock.Trader.HuaTai
 
         protected override TraderResult internalBuyStock(string code, float price, int num)
         {
-            const int BUY_TXT_CODE = 0x0408;
-            const int BUY_TXT_PRICE = 0x0409;
-            const int BUY_TXT_NUM = 0x040A;
-            const int BUY_BTN_OK = 0x3EE;
-
-            ClickBuyTreeViewItem();
-
-            // 设定代码,价格,数量
-            IntPtr hPanel = GetDetailPanel();
-            IntPtr hCtrl = Win32API.GetDlgItem(hPanel, BUY_TXT_CODE);
-            Win32API.SendMessage(hCtrl, Win32Code.WM_SETTEXT, 0, StockUtil.GetShortCode(code));
-            hCtrl = Win32API.GetDlgItem(hPanel, BUY_TXT_PRICE);
-            Win32API.SendMessage(hCtrl, Win32Code.WM_SETTEXT, 0, price.ToString());
-            hCtrl = Win32API.GetDlgItem(hPanel, BUY_TXT_NUM);
-            Win32API.SendMessage(hCtrl, Win32Code.WM_SETTEXT, 0, num.ToString());
-
-            // 点击买入按钮
-            hCtrl = Win32API.GetDlgItem(hPanel, BUY_BTN_OK);
-            Win32API.PostMessage(hCtrl, Win32Code.WM_LBUTTONDOWN, 0, 0);
-            Win32API.PostMessage(hCtrl, Win32Code.WM_LBUTTONUP, 0, 0);
-
-            ClickQueryDrcjTreeViewItem();
-
             TraderResult result = new TraderResult();
             result.Code = TraderResultEnum.SUCCESS;
             return result;
