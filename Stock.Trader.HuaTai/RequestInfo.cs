@@ -82,12 +82,13 @@ namespace Stock.Trader.HuaTai
         }
     }
 
-    public class LoginPostInfo
+    /// <summary>
+    /// 登录
+    /// </summary>
+    public class LoginPostRequest
     {
-           // Methods
-        public LoginPostInfo() { }
+        public LoginPostRequest() { }
 
-        // Properties
         public string userType
         {
             get
@@ -241,9 +242,9 @@ namespace Stock.Trader.HuaTai
     /// </summary>
     public class GetTodayEntrusterRequest : Request
     {
-        // uid=152-107c-7090078&cssweb_type=GET_TODAY_ENTRUST&version=1&custid=666621390461&op_branch_no=17&
+        // uid=152-107c-7090078&cssweb_type=GET_TODAY_ENTRUST&version=1&custid=666600001111&op_branch_no=17&
         // branch_no=17&op_entrust_way=7&op_station=IP$183.206.207.161;MAC$00-0C-29-1A-B4-32;HDD$                    &
-        // function_id=401&fund_account=666621390461&password=ojCz+oMyzH00kXNZv4/iTA$$&identity_type=&
+        // function_id=401&fund_account=666600001111&password=ojCz+oMyzH00kXNZv4/iTA$$&identity_type=&
         // exchange_type=&stock_account=&stock_code=&locate_entrust_no=&query_direction=&sort_direction=0&
         // request_num=100&position_str=&ram=0.5542000429704785
         public GetTodayEntrusterRequest() {
@@ -264,9 +265,9 @@ namespace Stock.Trader.HuaTai
     /// </summary>
     public class GetHistoryEntrusterRequest : Request
     {
-        //uid=152-107c-7090078&cssweb_type=HISTORY_TRADE&version=1&custid=666621390461&op_branch_no=17&
+        //uid=152-107c-7090078&cssweb_type=HISTORY_TRADE&version=1&custid=666600001111&op_branch_no=17&
         // branch_no=17&op_entrust_way=7&op_station=IP$183.206.207.161;MAC$00-0C-29-1A-B4-32;HDD$                    &
-        // function_id=411&fund_account=666621390461&password=ojCz+oMyzH00kXNZv4/iTA$$&identity_type=&
+        // function_id=411&fund_account=666600001111&password=ojCz+oMyzH00kXNZv4/iTA$$&identity_type=&
         // start_date=20150918&end_date=20151019&exchange_type=&stock_account=&stock_code=&query_direction=1&
         // request_num=100&position_str=&ram=0.356126575730741
     }
@@ -353,6 +354,9 @@ namespace Stock.Trader.HuaTai
 
     }
 
+    /// <summary>
+    /// 获取资金信息
+    /// </summary>
     public class GetFundsRequest : Request
     {
         // uid=153-0679-7959208&cssweb_type=GET_FUNDS&version=1&custid=666600&op_branch_no=17&
